@@ -1,0 +1,49 @@
+-------- backend ------------
+
+form add data 
+form submit kari database save data(insert)
+table show data 
+update and delete
+status(checkbox) = active,delete
+productname koi name no hoy te category ma join karvi (models)
+category mathi multiple subcategory join karvi (models)
+secound database table banavu image mate
+multiple image insert in secound table in database
+secound database table ni multiple image mathi first image show in table
+table update ma multiple image show
+table update ma multiple image ma delete button mukine delete kari shakay
+
+------- frontend -----------
+
+Categories,Recommended Products,Best Selling Product = dynamic data
+1 id name item quantity price = done
+1 product price total 
+2 id order_id Shipping_info detels = done
+table database Shipping_info = done
+
+
+---------------------------------
+cart check out kare check kare sign in 6 no hoy to sign up karave
+sign up thai to my account ma ave
+
+------------------------------------
+frontend
+account sign in hoy to sign show no thai done
+cart quantity plus karavi 
+index thi direct cart product add thai done  
+my account order item
+
+
+
+backend
+order details status button done
+order id show name done
+
+order detail product total
+
+===============
+contact form backend table 
+support dynamic table 
+index first slide dynamic
+
+  
