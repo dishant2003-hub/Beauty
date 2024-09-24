@@ -17,17 +17,14 @@ class Beauty extends CI_Controller
         $this->load->view('frontend/layout/header');
 
         $userdata = $this->session->userdata('user');
-        // print_r($userdata);die;
 
         $sql = "SELECT * FROM `category` WHERE Parent = 0";
         $test = $this->db->query($sql);
         $row['datares'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;
 
         $sql1 = "SELECT * FROM category";
         $test = $this->db->query($sql1);
         $row['get_all_category'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;
 
         $this->load->view('frontend/index', $row);
         $this->load->view('frontend/layout/footer');
@@ -48,7 +45,6 @@ class Beauty extends CI_Controller
         $data["links"] = $this->pagination->create_links();
         $data['student'] = $this->cart->get_students($config["per_page"], $page);
 
-        // echo '<pre>';print_r($data);die;
         $this->load->view('frontend/category', $data);
         $this->load->view('frontend/layout/footer');
     }
@@ -59,7 +55,6 @@ class Beauty extends CI_Controller
         $this->load->view('frontend/layout/header');
 
         $data['result'] = $this->cart->getAll('support');
-        // echo "<pre>";print_r($data);die;
 
         $this->load->view('frontend/support', $data);
         $this->load->view('frontend/layout/footer');
@@ -74,7 +69,6 @@ class Beauty extends CI_Controller
     public function contact_form()
     {
         if ($this->input->post('submit')) {
-            // echo "<pre>";print_r($_POST);die;
 
             $data = array(
                 'fname' => $this->input->post('firstname'),
@@ -86,7 +80,6 @@ class Beauty extends CI_Controller
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             );
-            // echo "<pre>";print_r($data);die;
 
             $contact = $this->cart->contact_insert($data);
         }
@@ -134,7 +127,6 @@ class Beauty extends CI_Controller
     public function direct_cart($id)
     {
         $result = $this->cart->parent($id);
-        // echo "<pre>";print_r($result);die;
 
         $id = $result['id'];
         $image = $result['image'];
@@ -143,7 +135,6 @@ class Beauty extends CI_Controller
         $quantity = '';
         $total = $result['price'];
 
-        //  unset($_SESSION['cartdata']); die();    
         $cart_productadd = array(
             'id' => $id,
             'image' => $image,
@@ -176,7 +167,6 @@ class Beauty extends CI_Controller
                 $this->session->set_userdata('cartdata', array($cart_productadd));
             }
         }
-        // echo "<pre>";print_r($_SESSION['cartdata']);die;
 
         redirect('beauty/cart');
     }
@@ -185,18 +175,15 @@ class Beauty extends CI_Controller
     // ---------- category page select, add to cart ------------
     public function product($id)
     {
-        // print_r($id);die;
         $this->load->view('frontend/layout/header');
 
         $sql = "SELECT * FROM `category` WHERE id = $id";
         $test = $this->db->query($sql);
         $row['datares'] = $test->row_array();
-        // echo '<pre>'; print_r($row);die; 
 
         $sql1 = "SELECT * FROM category";
         $test = $this->db->query($sql1);
         $row['get_all_category'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;
 
         $this->load->view('frontend/product', $row);
         $this->load->view('frontend/layout/footer');
@@ -206,7 +193,6 @@ class Beauty extends CI_Controller
     public function cart()
     {
         if (!empty($this->input->post('submit'))) {
-            // echo "<pre>";print_r($_POST);die;
 
             $id = $this->input->post('id');
             $image = $this->input->post('image');
@@ -229,7 +215,6 @@ class Beauty extends CI_Controller
             $total = 0;
 
             $cartdata = $this->session->userdata('cartdata');  // session get data
-            // echo "<pre>";print_r($cartdata);die;
 
             if (!empty($cartdata)) {
                 foreach ($cartdata as $key => $row) {
@@ -249,14 +234,12 @@ class Beauty extends CI_Controller
                     $this->session->set_userdata('cartdata', array($cart_product));
                 }
             }
-            // echo "<pre>";print_r($_SESSION['cartdata']);die;
         }
 
         if (!empty($this->input->post('submit_cart'))) {
 
             $proceed = $this->session->userdata('data');
             $this->session->set_userdata('data', array($proceed));
-            // echo "<pre>";print_r($_SESSION('data'));die;
         }
 
         $this->load->view('frontend/layout/header');
@@ -265,12 +248,9 @@ class Beauty extends CI_Controller
     }
 
     // ---------  image delete cart ---------
-    // cart model ma getAll function ma cart example database id ne data name apu
     function remove($id)
     {
-        // echo "<pre>";print_r($id);die;
         $this->session->userdata('cartdata');
-        // unset thi khali cartdata sesseion destroy thai
         unset($_SESSION['cartdata']);
         redirect('beauty/cart');
     }
@@ -280,8 +260,6 @@ class Beauty extends CI_Controller
     public function shopdata($id = "")
     {
         if ($this->input->post('submit')) {
-            // echo "<pre>";print_r($_POST);die;
-
             $id = $this->input->post('id');
 
             $data = array(
@@ -301,10 +279,8 @@ class Beauty extends CI_Controller
             }
 
             if (!empty($last_id)) {
-                // echo "<pre>";print_r($last_id);die;
 
                 $cartdata = $this->session->userdata('cartdata');
-                // echo '<pre>';print_r($cartdata);die;  
                 foreach ($cartdata as $orderitem) {
 
                     $order = array(
@@ -315,7 +291,6 @@ class Beauty extends CI_Controller
                         'quantity' => $orderitem['quantity'],
                         'total' => $orderitem['total'],
                     );
-                    // echo '<pre>';print_r($order);die;
                     $this->cart->order_item($order, $last_id);
                 }
             }
@@ -344,7 +319,6 @@ class Beauty extends CI_Controller
     public function register()
     {
         if ($this->input->post('submit')) {
-            // echo "<pre>";print_r($_POST);die;
 
             $data = array(
                 'fname' => $this->input->post('Firstname'),
@@ -372,20 +346,16 @@ class Beauty extends CI_Controller
             $password = $this->input->post('Password');
 
             if (!empty($email)) {
-                // check email
                 $this->cart->login_email($email);  
             }
 
             if (!empty($email) && !empty($password)) {
-                // check email and password
                 $result = $this->cart->login_password($email, $password);
-                // echo "<pre>"; print_r($result);die;
             }
 
             if (!empty($email)) {
                 $data = $this->cart->login_id($email);
                 $id = $data['id'];
-                // echo "<pre>";print_r($id);die;
             }
 
             $data = array(
@@ -393,11 +363,9 @@ class Beauty extends CI_Controller
                 'email' => $email,
                 'password' => $password,
             );
-            // echo "<pre>";print_r($data);die;
 
             $this->session->set_userdata('user', $data);
             $userdata = $this->session->userdata('user');
-            // echo "<pre>";print_r($userdata);die;
 
             if (!empty($result)) {
                 redirect('');
@@ -413,7 +381,6 @@ class Beauty extends CI_Controller
         $this->load->view('frontend/layout/header');
 
         $userdata = $this->session->userdata('user');
-        // echo "<pre>";print_r($userdata);die;
 
         if (empty($userdata)) {
             redirect('');
@@ -421,14 +388,12 @@ class Beauty extends CI_Controller
 
         $id = $userdata['id'];
         $result['array'] = $this->cart->account($id);
-        // echo "<pre>";print_r($result);die;
 
         $email = $userdata['email'];
         $arrow = $this->cart->product_history($email);
         $id = $arrow['id'];
 
         $result['order'] = $this->cart->history('order_item', array('order_id' => $id));
-        // echo "<pre>";print_r($result);die;   
 
         $this->load->view('frontend/myaccount', $result);
         $this->load->view('frontend/layout/footer');
@@ -438,7 +403,6 @@ class Beauty extends CI_Controller
     public function logout()
     {
         $this->session->userdata('user');
-        // unset thi khali $_SESSION['user'] destroy thai
         unset($_SESSION['user']);
         redirect('');
     }

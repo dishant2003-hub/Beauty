@@ -22,14 +22,11 @@
                     <tbody class="table-border-bottom-0">
                         <tr>
                             <?php
-                            //  echo "<pre>";print_r($student);die;  
                             foreach ($student as $data) {
                                 $grand_total = 0;
 
                                 $id = $data->id; 
-                                // echo "<pre>";print_r($id);die;
                                 $product = $this->cartdata->getAll('order_item', array('order_id' => $id));
-                                // echo "<pre>";print_r($product);die;  
                                 foreach ($product as $arrow) {
                                     $grand_total += $arrow['total'];
                                     $charge = $grand_total * 10 / 100;

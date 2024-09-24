@@ -6,29 +6,20 @@
                     <h5 class="mb-0">Category</h5></small>
                 </div>
                 <div class="card-body">
-
-                    <?php
-                    //  echo "<pre>";print_r($result);die;
-                    ?>
                     <form method="POST" id="upload_form" action="<?= base_url('backend/product/add_insert') ?>" enctype="multipart/form-data">
-
                         <div class="mb-3">
                             <input type="hidden" value="<?= isset($result['id']) ? $result['id'] : ''; ?>" class="id" name="id">
                         </div>
-
                         <?php
                         if (!empty($result['id'])) {
                             $img_id = $result['id'];
                             $get_product_img = $this->select->image_add('product_img', array('product_id' => $img_id));
                         }
-                        // echo "<pre>";print_r($get_product_img);die;
                         ?>
-   
                         <div class="mb-3">
                             <label for="exampleFormControlSelect" class="form-label">Category</label>
                             <select class="form-select menu_change " name="Category" aria-label="Default select example">
                                 <option>select Menu</option>
-
                                 <?php
                                 foreach ($datares as $data) {
                                 ?>
@@ -70,9 +61,7 @@
                             <div class="row ">
                                 <?php
                                 if (isset($get_product_img)) {
-                                    // echo "<pre>";print_r($get_product_img);die;
                                     foreach ($get_product_img as $data) {
-                                        // echo "<pre>";print_r($data['image']);die;
                                 ?>
                                         <div class="col-sm-3">
                                             <img src="<?= isset($result['image']) ? base_url('upload/product/' . $data['image']) : ''; ?>" id="images" alt="image">
@@ -138,7 +127,6 @@
     $(document).ready(function() {
         $('.menu_change').change(function() {
             var id = $(this).val();
-            // alert(id);
 
             $.ajax({
                 type: "POST",
@@ -162,7 +150,6 @@
 
         $('.delete_img').click(function() {
             var id = $(this).attr('data-img-id');
-            // alert(id);
 
             $.ajax({
                 type: "POST",

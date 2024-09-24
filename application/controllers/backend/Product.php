@@ -19,7 +19,6 @@ class Product extends CI_Controller
         $sql = "SELECT * FROM `product` WHERE category = 0";
         $test = $this->db->query($sql);
         $row['result'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;                 
 
         $this->load->view('backend/product/add', $row);
         $this->load->view('backend/layout/footer');
@@ -40,8 +39,6 @@ class Product extends CI_Controller
         $data["links"] = $this->pagination->create_links();
         $data['student'] = $this->select->get_students($config["per_page"], $page);
        
-        //  echo "<pre>";print_r($data);die;
-
         $this->load->view('backend/product/list', $data);
         $this->load->view('backend/layout/footer');
     }
@@ -49,10 +46,6 @@ class Product extends CI_Controller
     public function add_insert($id = "")
     {
         if ($this->input->post('submit')) { 
-            // echo "<pre>";
-            // print_r($_POST);
-            // print_r($_FILES);
-            // die;
 
             $id = $this->input->post('id');
   
@@ -75,17 +68,11 @@ class Product extends CI_Controller
             }
 
             if (!empty($last_id)) {
-                // echo "<pre>";
-                // print_r($_POST);
-                // print_r($_FILES);
-                // die;
 
                 if (!empty($_FILES['images']['name'])) {
 
                     $nama_array = array();
                     $count = count($_FILES["images"]["size"]);
-
-                    // print_r($count);die;
 
                     foreach ($_FILES as $key => $value) {
 
@@ -114,9 +101,7 @@ class Product extends CI_Controller
                                         $i++;
                                     }
                                 }
-                                // ($_FILES['images']);
                                 $img_data = $_FILES['images']['name'];
-                                // echo "<pre>";print_r($img_data);die;
 
                                 $this->select->img_insert($img_data, $last_id);  // 67
                             }
@@ -130,27 +115,19 @@ class Product extends CI_Controller
 
     public function update($id = "")
     {
-            // print_r($id);die;
         $this->load->view('backend/layout/header');
 
         $row['result'] = $this->select->getRow('product', array('id' => $id));
-        // echo "<pre>";print_r($row);die;
 
         $sql = "SELECT * FROM `product` WHERE category = 0";
         $test = $this->db->query($sql);
         $row['datares'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;
 
         $this->load->view('backend/product/add', $row);
 
         if ($id != "") {
-            //  echo "<pre>";print_r($id);die;
 
             if (!empty($_POST)) {
-                // echo '<pre>';
-                // print_r($_POST);
-                // print_r($_FILES);
-                // die;
                 $updateData = array(
                     'Category' => $this->input->post('category'),
                     'Subcategory' => $this->input->post('subcategory'),
@@ -170,7 +147,6 @@ class Product extends CI_Controller
     // ----------- Delete --------------
     public function delete($id)
     {
-        // print_r($id);die;
         $this->select->deleted($id);
         redirect('backend/product/Productlist');
     }

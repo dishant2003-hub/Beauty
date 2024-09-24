@@ -31,7 +31,6 @@
                     </div>
 
                     <?php
-                        //  echo "<pre>";print_r($result);die;
                         foreach($result as $key => $data){
                     ?>
                     <div class="cus-accordion" id="accordionExample" data-aos="fade-up">

@@ -82,8 +82,6 @@
                      }
                      ?>
 
-                     <!-- foreach loop ma session avta loop fara kare te mate order summery ne loop ni bar muki, sub total loop ni andar fara kare and niche subtotal ave -->
-
                      <div class="remember">
                         <label class="custom-check-box">I am over 18 years old and accept the <a href="#">condition</a> When signed up for the campaign you will receive 3 days trial which costs 1.00 USD. If your membership is not cancelled within the trial, we will charge you 39.95 USD every 14 days, until the membership is terminated<input type="checkbox" name="terms" id="terms" required=""><span class="checkmark"></span></label>
                      </div>

@@ -15,7 +15,6 @@
                 <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
                     <div class="card invoice-preview-card">
                         <?php
-                        // echo "<pre>";print_r($arrow);die;
                         foreach ($arrow as $obj) {
                         }
                         ?>
@@ -81,9 +80,7 @@
                                     <tr>
                                         <?php
                                         $sub_total = 0;
-                                        // echo "<pre>";print_r($order);die;
                                         foreach ($order as $product) {
-                                            // echo "<pre>";print_r($product);die;  
                                             $sub_total += $product['total'];
                                             $charges = $sub_total * 10 / 100;
                                             $total = $sub_total + $charges;

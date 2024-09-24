@@ -21,7 +21,6 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                         <?php foreach ($student as $data) { 
-                            // echo "<pre>";print_r($data);die; 
                         ?>
                             <tr>
                                 <td><?= $data->id; ?></td>
@@ -33,13 +32,11 @@
                                 <td>
                                     <?php
                                     if ($data->pi_image) {
-                                        // echo "<pre>";print_r($data);die;
                                     ?>
                                         <img src="<?php echo base_url(PRODUCT . $data->pi_image); ?>" width="16%">
                                     <?php
                                     } else {
                                         $data->image;
-                                        // echo "<pre>";print_r($data);die;
                                     ?>
                                         <img src="<?php echo base_url(PRODUCT . $data->image); ?>" width="16%">
                                     <?php
@@ -90,7 +87,6 @@
     $(document).ready(function() {
         $('.update-status').change(function() {
             var id = $(this).attr('data-id');
-            // alert(id);
             var status = $(this).val();
             var status = 0;
             var record_id = $(this).val();
@@ -105,7 +101,6 @@
                     status: status,
                 },
                 success: function(data) {
-                    // print_r(data);die;
                 }
             });
         });

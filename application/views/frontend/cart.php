@@ -47,8 +47,6 @@
                         $charges = 0;
                         $total = 0;
 
-                        // echo "<pre>";print_r($_SESSION['cartdata']);die;
-
                         if (!empty($_SESSION['cartdata'])) {
                             foreach ($_SESSION['cartdata'] as $result) {
                                 $sub_total += $result['total'];
@@ -74,9 +72,6 @@
                                             </button> 
                                             <div class="number dim"><?php echo $result['quantity']; ?></div>
                                             <a href="<?= base_url('beauty/direct_cart/' . $result['id']); ?>" class="lite">+</a>
-                                            <!-- <button class="plus">
-                                                <img src="<?= base_url('public/frontend/images/icon/plus.svg'); ?>" alt="icon">
-                                            </button> -->
                                         </div>
                                     </div>
                                     <div class="total">

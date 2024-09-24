@@ -31,7 +31,6 @@
         <div class="container">
             <div class="row">
                 <?php
-                //  echo '<pre>';print_r($student);die;
                 foreach ($student as $data) {
                 ?>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" style="margin-top: 70px;">
@@ -52,9 +51,6 @@
                 }
                 ?>
                 <div class="col-12 col-sm-12 col-md-12 text-center">
-                    <?php
-                    // echo '<pre>';print_r($links);die;
-                    ?>
                     <nav class="pagination" data-aos="fade-up">
                         <ul>
                             <div id="pagination">

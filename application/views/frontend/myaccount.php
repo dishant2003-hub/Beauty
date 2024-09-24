@@ -78,7 +78,6 @@
                                             </div>
                                         </div>
                                         <?php
-                                        // echo "<pre>";print_r($order);die;   
                                         foreach ($order as $data) {
                                         ?>
                                             <div class="cart-item">
@@ -95,13 +94,7 @@
                                                 </div>
                                                 <div class="increment">
                                                     <div class="input">
-                                                        <!-- <button class="minus" aria-label="Decrease by one" disabled>
-                                                            <img src="<?= base_url('public/frontend/images/icon/minus.svg'); ?>" alt="icon">
-                                                        </button> -->
                                                         <div class="number dim"><?php echo $data['quantity']; ?></div>
-                                                        <!-- <button class="plus" aria-label="Increase by one">
-                                                            <img src="<?= base_url('public/frontend/images/icon/plus.svg'); ?>" alt="icon">
-                                                        </button> -->
                                                     </div>
                                                 </div>
                                                 <div class="total">

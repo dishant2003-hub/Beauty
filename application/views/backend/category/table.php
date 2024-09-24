@@ -19,9 +19,7 @@
                 </thead>
                 <tbody class="table-border-bottom-0">
                     <?php
-                    // echo "<pre>";print_r($student);die;
                     foreach ($student as $data) {
-                        // echo "<pre>";print_r($data);die;
                     ?>
                         <tr>
                             <td><?= $data->id; ?></td>
@@ -31,7 +29,7 @@
                             <td>$<?= $data->price; ?></td>
                             <td><?= $data->description; ?></td>
                             <td>
-                                <label class="switch"> <!-- is_active check kare 1 6 ke nai -->
+                                <label class="switch">
                                     <input type="button" value="<?= $data->is_active ?>" data-id="<?= $data->id; ?>" class="switch-input update-status" <?= $data->is_active == 1 ? 'checked' : '' ?>>
                                     <span class="switch-toggle-slider">
                                         <span class="switch-on">

@@ -12,33 +12,24 @@
                         <div class="mb-3">
                             <input type="hidden" value="<?= isset($result['id']) ? $result['id'] : ''; ?>" class="id" name="id">
                         </div>
-
-                        <?php   
-                        // echo "<pre>";print_r($result);die;    
-                        ?>   
    
                         <div class="mb-3">
                             <label for="exampleFormControlSelect" class="form-label">Parent </label>
                             <select class="form-select " name="parent" id="exampleFormControlSelect1" aria-label="Default select example">
                                 <option selected>select Menu</option>
-
                                 <?php
-                                
                                 foreach ($datares as $data) {   
-                                    // echo "<pre>";print_r($data);die;
                                 ?>
                                     <option value="<?= isset($data['id']) ? $data['id'] : ''; ?>"><?= isset($data['name']) ? $data['name'] : ''; ?></option>
-
                                 <?php
                                 }
-                                // print_r($data);die;
                                 ?>
                                 
                             </select>  
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Name</label> <!-- $result['Name] : ''; = table ma add thai pan form ma add no thai data -->
+                            <label class="form-label">Name</label> 
                             <input type="text" class="form-control" name="name" placeholder="Product" value="<?= isset($result['name']) ? $result['name'] : ''; ?>" />
                         </div>
 

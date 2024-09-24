@@ -20,7 +20,6 @@ class Category extends CI_Controller
         $sql = "SELECT * FROM `category` WHERE Parent = 0";   
         $test = $this->db->query($sql);
         $row['datares'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;
 
         $this->load->view('backend/category/add', $row);
         $this->load->view('backend/layout/footer');
@@ -41,8 +40,6 @@ class Category extends CI_Controller
         $data["links"] = $this->pagination->create_links(); 
         $data['student'] = $this->models->get_students($config["per_page"], $page);
 
-        // echo "<pre>";print_r($data);die;
-
         $this->load->view('backend/category/table', $data);
         $this->load->view('backend/layout/footer');
     }
@@ -51,9 +48,6 @@ class Category extends CI_Controller
     public function add_insert($id = "")
     {   
         if ($this->input->post('submit')) {
-            // echo "<pre>";
-            // print_r($_POST);
-            // print_r($_FILES);die;
 
             $id = $this->input->post('id');
             $data['parent'] = $this->input->post('parent');
@@ -77,16 +71,12 @@ class Category extends CI_Controller
             $data['created_at'] = date('Y-m-d H:i:s');
             $data['updated_at'] = date('Y-m-d H:i:s');
             
-            // echo "<pre>";print_r($data);die;
-
             if ($id != "") {
                 $this->db->where('id', $id);
                 $this->db->update('category', $data);
             } else {
                 $response = $this->models->insert($data);
             }
-            // echo "<pre>";print_r($id);
-            // print_r($data);die;
            
         } 
         redirect('backend/category/category_table');
@@ -95,15 +85,11 @@ class Category extends CI_Controller
     // --------- update ----------   
     public function update($id = "")   
     {
-        // print_r($id);die;
-   
         $row['result'] = $this->models->getRow('category', array('id' => $id));
-        // echo '<pre>';print_r($row);die;
 
         $sql = "SELECT * FROM `category` WHERE Parent = 0";
         $test = $this->db->query($sql);
         $row['datares'] = $test->result_array();
-        // echo '<pre>'; print_r($row);die;
 
         $this->load->view('backend/layout/header');
         $this->load->view('backend/category/add', $row);
@@ -114,7 +100,6 @@ class Category extends CI_Controller
     // ----- delete --------
     public function delete($id)
     {
-        //  print_r($id);die;
         $this->models->deleted($id);
         redirect('backend/category/category_table');
     }

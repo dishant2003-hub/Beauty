@@ -100,9 +100,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="theme-button">
-                                <button type="submit" name="submit" value="submit" class="submit-btn addcart">Save</button>
-                            </div> -->
                         </form>
                     </div>
                 </div>

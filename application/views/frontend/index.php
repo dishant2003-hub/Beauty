@@ -73,7 +73,6 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                <div class="re-product">
                   <?php
-                  // echo "<pre>";print_r($datares);die;
                   foreach ($datares as $row) {
                   ?>
                      <div class="slide">
@@ -113,7 +112,6 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                <div class="re-product">
                   <?php
-                  // echo"<pre>";print_r($get_all_category);die;
                   foreach ($get_all_category as $data) {
                   ?>
                      <div class="slide">
@@ -170,7 +168,6 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                <div class="re-product">
                   <?php
-                  // echo "<pre>";print_r($get_all_category);die;
                   foreach ($get_all_category as $data) {
                   ?>
                      <div class="slide">

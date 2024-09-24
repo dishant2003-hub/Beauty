@@ -129,9 +129,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                <div class="re-product">
                   <?php
-               //  echo "<pre>";print_r($get_all_category);
                   foreach ($get_all_category as $data) {
-                     // echo "<pre>";print_r($data);die;
                   ?>
                      <div class="slide">
                         <div class="product-item">
